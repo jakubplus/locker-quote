@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form method="POST">
+        <label>Długość (cm):</label>
+        <input type="number" step="0.1" name="length" value="{{ values.length }}" required>
+
+        <label>Szerokość (cm):</label>
+        <input type="number" step="0.1" name="width" value="{{ values.width }}" required>
+
+        <label>Wysokość (cm):</label>
+        <input type="number" step="0.1" name="height" value="{{ values.height }}" required>
+
+        <button type="submit">Oblicz</button>
+        <p class="hint">Możesz też użyć API: <code>POST /api/quote</code></p>
+    </form>
+
+    {% if error %}
+        <div class="error"><strong>Błąd:</strong> {{ error }}</div>
+    {% endif %}
+
+    {% if result %}
+        {% if result.fits %}
+            <div class="result">
+                <h3>✅ Paczka mieści się!</h3>
+                <p>Gabaryt: <strong>{{ result.locker.code }}</strong></p>
+                <p>Wnętrze skrytki: {{ result.locker.inside.length }}×{{ result.locker.inside.width }}×{{ result.locker.inside.height }} cm</p>
+                <p>Cena: <strong>{{ result.locker.price }} zł</strong></p>
+            </div>
+        {% else %}
+            <div class="result">
+                <h3>📦 Paczka nie mieści się w paczkomacie</h3>
+                <p>Proponowany kurier: <strong>{{ result.courier.name }}</strong></p>
+                {% if result.courier.price_estimated is defined %}
+                    <p>Szacowana cena: <strong>{{ result.courier.price_estimated }} zł</strong></p>
+                {% endif %}
+                {% if result.courier.reason is defined %}
+                    <p class="hint">{{ result.courier.reason }}</p>
+                {% endif %}
+                {% if result.courier.suggestions is defined and result.courier.suggestions|length > 0 %}
+                    <ul class="hint">
+                        {% for s in result.courier.suggestions %}
+                            <li>{{ s }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

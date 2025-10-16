@@ -1,0 +1,62 @@
+# ----------------------------------------
+# Symfony / PHP / Composer
+# ----------------------------------------
+/vendor/
+/var/
+/node_modules/
+composer.lock
+.env.local
+.env.*.local
+/.phpunit.result.cache
+/.php-cs-fixer.cache
+/.phpunit.cache
+/.phpunit.result.cache
+
+# ----------------------------------------
+# IDE / Editor
+# ----------------------------------------
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ----------------------------------------
+# Docker / Build artefacts
+# ----------------------------------------
+/.docker/
+/docker/*.pid
+/docker/*.sock
+/docker/*.log
+/docker-compose.override.yml
+/docker-compose.test.yml
+/.env.docker
+/.env.test
+
+# ----------------------------------------
+# Logs / Cache / Temporary files
+# ----------------------------------------
+/var/cache/
+/var/log/
+/var/tmp/
+/tmp/
+/coverage/
+/var/coverage/
+
+# ----------------------------------------
+# Reports / Artifacts
+# ----------------------------------------
+/build/
+/reports/
+/test-results/
+/phpunit.xml
+/phpunit.xml.cache
+
+# ----------------------------------------
+# System / OS
+# ----------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini

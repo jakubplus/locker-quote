@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(__DIR__.'/../vendor/bin/simple-phpunit')) {
+    // korzysta z bridge'a
+    require __DIR__.'/../vendor/bin/simple-phpunit';
+    exit;
+}
+
+// fallback do zwykłego phpunit
+require __DIR__.'/../vendor/bin/phpunit';

@@ -1,0 +1,71 @@
+# ----------------------------------------
+# Ignoruj pliki i katalogi lokalne,
+# które nie są potrzebne wewnątrz obrazu
+# ----------------------------------------
+
+# Git i metadane
+.git
+.gitignore
+.gitattributes
+
+# IDE / Editor
+.idea
+.vscode
+*.iml
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Node / Frontend (jeśli istnieje)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# System / OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Composer cache / lock
+composer.lock
+composer.phar
+
+# Cache i logi Symfony
+/var/cache/
+/var/log/
+/var/tmp/
+/tmp/
+
+# PHPUnit / test artifacts
+.phpunit.result.cache
+/.phpunit.cache
+/tests/
+/coverage/
+/var/coverage/
+/reports/
+/build/
+
+# Docker wewnętrzne pliki
+docker-compose.override.yml
+docker-compose.test.yml
+/.dockerignore
+/.env
+/.env.local
+/.env.test
+/.env.docker
+
+# Dokumentacja i pliki tekstowe
+README.md
+LICENSE
+CHANGELOG.md
+*.md
+
+# Zbędne binarki / artefakty
+*.tar
+*.zip
+*.gz
+*.tgz
+*.bak
+*.tmp
+*.old
